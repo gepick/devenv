@@ -17,6 +17,7 @@ MongoClient.connect(url, function(err, db) {
       getAllMatches: [Match]
       getMatches(ids: [String]): [Match]
       getMatch(_id: String): Match
+      getHistoricalMatches(_id: String): [Match]
     }
     type Match {
       _id: String
@@ -59,6 +60,9 @@ MongoClient.connect(url, function(err, db) {
       console.log('matches', matches)
 
       return matches
+    },
+    getHistoricalMatches: async (props) => {
+      console.log('PROPS', props)
     },
     getMatch: async (props) => {
       const _id = ObjectID(props._id[0])
